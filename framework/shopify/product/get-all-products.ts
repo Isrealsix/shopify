@@ -1,6 +1,4 @@
-import { normalizeProduct } from './../utils/normalize';
-import getAllProductsQuery from "../utils/queries/get-all-products";
-import fetchData from '../utils/fetch-api';
+import { fetchData, normalizeProduct, getAllProductsQuery } from '../utils';
 import { ProductConnection } from "../schema";
 import { IProduct } from '@common/types/products';
 
