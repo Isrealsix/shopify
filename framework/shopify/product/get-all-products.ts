@@ -2,7 +2,7 @@ import { normalizeProduct } from './../utils/normalize';
 import getAllProductsQuery from "../utils/queries/get-all-products";
 import fetchData from '../utils/fetch-api';
 import { ProductConnection } from "../schema";
-import { IProduct } from './../../common/types/products';
+import { IProduct } from '@common/types/products';
 
 
 type ReturnType = {
