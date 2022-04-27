@@ -1,12 +1,13 @@
 const fetchData = async () => {
-  const url = 'https://jsonplaceholder.typicode.com/todos';
-  const data = await (await fetch(url)).json();
+  const data = await (
+    await fetch("https://jsonplaceholder.typicode.com/todos")
+  ).json();
   return { data };
-}
+};
 
 const getAllProducts = async (): Promise<any[]> => {
   const { data } = await fetchData();
   return data;
-}
+};
 
 export default getAllProducts;
