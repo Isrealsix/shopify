@@ -11,8 +11,7 @@ export default function Home({ products }: InferGetStaticPropsType<typeof getSta
 
 export async function getStaticProps() {
   const config = getConfig();
-  console.log(config.apiUrl);
-  const products = await getAllProducts();
+  const products = await getAllProducts(config);
   return {
     props: {
       products
