@@ -1,4 +1,5 @@
-import { AppProps } from "next/app"
+import "assets/main.css";
+import { AppProps } from "next/app";
 import React from "react";
 
 type ReactFC = React.FC<{children: React.ReactNode}>;
