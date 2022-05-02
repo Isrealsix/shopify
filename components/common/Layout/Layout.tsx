@@ -4,4 +4,4 @@ const Layout: React.FC<{children: React.ReactNode}> = ({ children }) => (
   </div>
 )
 
-export default Layout
+export default Layout;
