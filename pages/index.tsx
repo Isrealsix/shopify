@@ -6,7 +6,9 @@ import { Layout } from "@components/common";
 
 export default function Home({ products }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div>{ JSON.stringify(products) }</div>
+    <div>
+      { JSON.stringify(products) }
+    </div>
   )
 }
 

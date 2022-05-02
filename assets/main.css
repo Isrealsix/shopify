@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.root {
-  @apply h-full mx-auto;
+.fit {
+  min-height: calc(100vh - 88px);
 }
