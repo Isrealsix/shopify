@@ -1,5 +1,4 @@
 .root {
   @apply bg-cyan h-full mx-auto;
   max-width: 2460px;
-  /* background: theme("colors.cyan"); */
 }
