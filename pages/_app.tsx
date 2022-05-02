@@ -1,8 +1,12 @@
 import { AppProps } from "next/app"
 import React from "react";
 
-const MyApp = ({Component, pageProps}: AppProps & {Component: {Layout: React.FC<{children: React.ReactNode}>}}) => {
-  const Layout = Component.Layout;
+type ReactFC = React.FC<{children: React.ReactNode}>;
+const LayoutFallback: ReactFC = ({children}) => <> {children} </>;
+
+
+const MyApp = ({Component, pageProps}: AppProps & {Component: {Layout: ReactFC}}) => {
+  const Layout = Component.Layout ?? LayoutFallback;
   return (
     <Layout>
       <Component {...pageProps} />
