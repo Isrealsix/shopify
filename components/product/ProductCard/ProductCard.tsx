@@ -20,7 +20,7 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
         { 
           product.images && (
             <Image
-              src={placeholderImage}
+              src={product.images[0].url ?? placeholderImage}
               height={540}
               width={540}
               quality={85}

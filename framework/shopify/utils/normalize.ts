@@ -3,7 +3,8 @@ import { IProduct } from '@common/types/products';
 
 const normalizeImage = ({ edges }: { edges: Array<ImageEdge> }) => {
   return edges.map(({ node: { originalSrc: url, ...rest } }) => ({
-    url: `images/${url}`,
+    url: `/images/${url}`,
+    ...rest
   }));
 };
 
