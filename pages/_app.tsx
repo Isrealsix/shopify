@@ -1,9 +1,12 @@
 import { AppProps } from "next/app"
+import { Layout } from '@components/common'
 
-const MyApp = ({Component, PageProps}: AppProps) => {
+const MyApp = ({Component, pageProps}: AppProps) => {
   return (
     <>
-      <Component {...PageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   )
 }
