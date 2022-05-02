@@ -13,12 +13,20 @@
 
     @screen lg {
       height: inherit;
+      max-height: 100%;
     }
   }
 }
 
 .layoutA {
-  color: red;
+  & > *:nth-child(6n + 1),
+  & > *:nth-child(6n + 5) {
+    @screen lg {
+      & {
+        @apply col-span-2 row-span-2;
+      }
+    }
+  }
 }
 
 .layoutB {
