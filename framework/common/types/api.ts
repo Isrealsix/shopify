@@ -10,4 +10,4 @@ export type ApiFetcherResults<T> = {
 export interface IApiConfig {
   apiUrl: string;
   fetch<T>(options: ApiFetcherOptions): Promise<ApiFetcherResults<T>>;
-} 
+}
