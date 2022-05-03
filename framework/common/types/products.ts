@@ -5,7 +5,7 @@ export interface IProductImage {
 
 export interface IProductPrice {
   value: number;
-  CurrencyCode: 'USD' | 'RUB' | string;
+  currencyCode: 'USD' | 'RUB' | string;
 }
 export interface IProduct {
   id: string;
@@ -14,5 +14,5 @@ export interface IProduct {
   slug: string;
   path: string;
   images: Array<IProductImage>;
-  price: IProductPrice
+  price: IProductPrice;
 }

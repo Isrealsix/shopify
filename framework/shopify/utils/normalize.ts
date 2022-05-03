@@ -1,4 +1,4 @@
-import { MoneyV2 } from './../schema.d';
+import { MoneyV2, CurrencyCode } from './../schema.d';
 import { ImageEdge, Product as ShopifyProduct } from "../schema";
 import { IProduct } from '@common/types/products';
 

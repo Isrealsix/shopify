@@ -18,7 +18,7 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
             <span>{product.name}</span>
           </h3>
           <span className={style.productPrice}>
-            {product.price.value} {product.price.CurrencyCode}
+            {product.price.value} {product.price.currencyCode}
           </span>
         </div>
         { 
