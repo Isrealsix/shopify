@@ -1,6 +1,7 @@
 import { IProduct } from "@common/types/products";
 import Image from "next/image";
 import Link from "next/link";
+import style from "./ProductCard.module.css";
 
 interface IProps {
   product: IProduct
@@ -10,12 +11,12 @@ const placeholderImage = '/product-image-placeholder.svg';
 const ProductCard: React.FC<IProps> = ({ product }) => {
   return (
     <Link href={`/products/${product.slug}`} passHref>
-      <a>
-        <div>
-          <h3>
+      <a className={style.root}>
+        <div className={style.productTag}>
+          <h3 className={style.productTitle}>
             <span>{product.name}</span>
           </h3>
-          <span>18 $</span>
+          <span className={style.productPrice}>18 $</span>
         </div>
         { 
           product.images && (
