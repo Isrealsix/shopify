@@ -17,11 +17,14 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
           <h3 className={style.productTitle}>
             <span>{product.name}</span>
           </h3>
-          <span className={style.productPrice}>18 $</span>
+          <span className={style.productPrice}>
+            {product.price.value} {product.price.CurrencyCode}
+          </span>
         </div>
         { 
           product.images && (
             <Image
+              className={style.productImage}
               src={product.images[0].url ?? placeholderImage}
               height={540}
               width={540}
