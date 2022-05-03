@@ -1,5 +1,6 @@
-import style from './Hero.module.css';
-import Link from 'next/link';
+import style from "./Hero.module.css";
+import Link from "next/link";
+import { Container } from "@components/ui";
 
 interface IProps {
   headline: string;
@@ -9,21 +10,19 @@ interface IProps {
 const Hero: React.FC<IProps> = ({ headline, description }) => {
   return (
     <div className="bg-black">
-      <div className={style.root}>
-        <h2 className={style.headline}>
-          {headline}
-        </h2>
-        <div>
-          <p className={style.description}>
-            {description}
-          </p>
-          <Link href='/'>
-            <a className={style.link}>Read it here</a>
-          </Link>
+      <Container>
+        <div className={style.root}>
+          <h2 className={style.headline}>{headline}</h2>
+          <div>
+            <p className={style.description}>{description}</p>
+            <Link href="/">
+              <a className={style.link}>Read it here</a>
+            </Link>
+          </div>
         </div>
-      </div>
+      </Container>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
