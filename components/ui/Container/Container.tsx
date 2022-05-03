@@ -1,11 +1,13 @@
-
 interface IProps {
   children: React.ReactNode | React.ReactNode[];
+  el?: React.ComponentType<React.HtmlHTMLAttributes<HTMLElement>>;
 }
 
-const Container:React.FC<IProps> = ({ children }) => {
+const Container:React.FC<IProps> = ({ children, el: Component = "div" }) => {
   return (
-    <div>Container</div>
+    <Component className="px-6 mx-auto max-w-8xl">
+      {children}
+    </Component>
   )
 }
 
