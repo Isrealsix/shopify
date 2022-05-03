@@ -12,6 +12,7 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
   return (
     <Link href={`/products/${product.slug}`} passHref>
       <a className={style.root}>
+        <div className={style.productBg}></div>
         <div className={style.productTag}>
           <h3 className={style.productTitle}>
             <span>{product.name}</span>
