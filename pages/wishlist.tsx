@@ -29,4 +29,5 @@ const wishlist = () => {
   )
 }
 
-export default wishlist
+wishlist.Layout = Layout;
+export default wishlist;
