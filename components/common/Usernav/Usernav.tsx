@@ -10,7 +10,7 @@ const Usernav: React.FC = () => {
           <Cart />
         </li>
         <li className={style.item}>
-          <Link href='/'>
+          <Link href='/wishlist'>
             <a>
               <Heart />
             </a>
