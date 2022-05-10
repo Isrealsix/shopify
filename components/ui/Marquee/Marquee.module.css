@@ -1,5 +1,11 @@
 .root {
+  @apply bg-black;
   height: 320px;
+  overflow: hidden;
+}
+
+.secondary {
+  @apply bg-white;
 }
 
 .container {
