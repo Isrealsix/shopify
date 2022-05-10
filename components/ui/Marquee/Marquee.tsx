@@ -1,3 +1,4 @@
+import { Ticker } from '@components/ui';
 import style from "./Marquee.module.css";
 
 interface IProps {
@@ -7,7 +8,9 @@ interface IProps {
 const Marquee: React.FC<IProps> = ({ children }) => {
   return (
     <div className={style.root}>
-      <div className={style.container}>{children}</div>
+      <Ticker height={40} offset={80} length={children.length}>
+        <div className={style.container}>{children}</div>
+      </Ticker>
     </div>
   );
 };

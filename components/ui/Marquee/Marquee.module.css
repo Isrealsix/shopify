@@ -4,6 +4,7 @@
 
 .container {
   @apply flex flex-row;
+  height: inherit;
 
   & > * {
     @apply flex-1 px-16 py-4 relative;
