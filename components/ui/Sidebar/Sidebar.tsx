@@ -1,9 +1,9 @@
 interface Props {
   children: any
+  isOpen: boolean
 }
 
-const Sidebar: React.FC<Props> = ({ children }) => {
-  const isOpen = true;
+const Sidebar: React.FC<Props> = ({ children, isOpen }) => {
   return (
     <>
       { isOpen ? (

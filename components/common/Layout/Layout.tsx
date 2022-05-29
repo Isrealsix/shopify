@@ -10,7 +10,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className={styles.root}>
       <Navbar />
-      <Sidebar>
+      <Sidebar isOpen={ui.sidebarOpen}>
         <CartSidebar />
       </Sidebar>
       <main className="fit">{children}</main>
