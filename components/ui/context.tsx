@@ -29,11 +29,13 @@ const UIContext = createContext<State>({
 export const UIProvider: React.FC<IProps> = ({ children }) => {
   const openSidebar = () => console.log("Opening sidebar");
   const closeSidebar = () => console.log("Closing sidebar");
+
   const value = {
     openSidebar,
     closeSidebar,
-    isSidebarOpen: false,
+    isSidebarOpen: true,
   };
+
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
 };
 

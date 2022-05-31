@@ -1,16 +1,17 @@
 interface Props {
-  children: any
-  isOpen: boolean
+  children: any;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-const Sidebar: React.FC<Props> = ({ children, isOpen }) => {
+const Sidebar: React.FC<Props> = ({ children, isOpen, onClose }) => {
   return (
     <>
-      { isOpen ? (
+      {isOpen ? (
         <div className="fixed inset-0 overflow-hidden h-full z-50">
           <div className="absolute inset-0 overflow-hidden">
             <div
-              onClick={() => {}}
+              onClick={onClose}
               className="absolute inset-0 bg-black bg-opacity-50 transition-opacity"
             />
             <section className="absolute inset-y-0 right-0 pl-10 max-w-full flex sm:pl-16 outline-none">
@@ -22,9 +23,9 @@ const Sidebar: React.FC<Props> = ({ children, isOpen }) => {
             </section>
           </div>
         </div>
-      ) : null }
+      ) : null}
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

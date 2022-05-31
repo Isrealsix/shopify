@@ -5,12 +5,11 @@ import { useUI } from "@components/ui/context";
 import styles from "./Layout.module.css";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const ui = useUI();
-  console.log(ui);
+  const { isSidebarOpen, closeSidebar } = useUI();
   return (
     <div className={styles.root}>
       <Navbar />
-      <Sidebar isOpen={ui.sidebarOpen}>
+      <Sidebar onClose={closeSidebar} isOpen={isSidebarOpen}>
         <CartSidebar />
       </Sidebar>
       <main className="fit">{children}</main>

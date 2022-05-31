@@ -1,18 +1,18 @@
-import style from './Usernav.module.css';
-import Link from 'next/link';
-import { Bag as Cart, Heart } from '@components/icons'
-import { useUI } from '@components/ui/context';
+import style from "./Usernav.module.css";
+import Link from "next/link";
+import { Bag as Cart, Heart } from "@components/icons";
+import { useUI } from "@components/ui/context";
 
 const Usernav: React.FC = () => {
-  const ui = useUI()
+  const { openSidebar } = useUI();
   return (
     <nav>
       <ul className={style.list}>
         <li className={style.item}>
-          <Cart onClick={ui.setSidebarOpen} />
+          <Cart onClick={openSidebar} />
         </li>
         <li className={style.item}>
-          <Link href='/wishlist'>
+          <Link href="/wishlist">
             <a>
               <Heart />
             </a>
@@ -20,7 +20,7 @@ const Usernav: React.FC = () => {
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Usernav
+export default Usernav;
