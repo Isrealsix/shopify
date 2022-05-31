@@ -1,19 +1,19 @@
-import { normalizeProduct, getAllProductsQuery } from '../utils';
+import { normalizeProduct, getAllProductsQuery } from "../utils";
 import { ProductConnection } from "../schema";
-import { IProduct } from '@common/types/products';
-import { IApiConfig } from '@common/types/api';
-
+import { IProduct } from "@common/types/products";
+import { IApiConfig } from "@common/types/api";
 
 type ReturnType = {
-  products: ProductConnection
-}
+  products: ProductConnection;
+};
 
 const getAllProducts = async (config: IApiConfig): Promise<Array<IProduct>> => {
-  const { data }  = await config.fetch<ReturnType>({
+  const { data } = await config.fetch<ReturnType>({
     url: config.apiUrl,
-    query: getAllProductsQuery
+    query: getAllProductsQuery,
   });
-  const products = data.products.edges.map(({ node }) => normalizeProduct(node)) ?? [];
+  const products =
+    data.products.edges.map(({ node }) => normalizeProduct(node)) ?? [];
   return products;
 };
 
