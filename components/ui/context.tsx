@@ -12,19 +12,29 @@ export interface IStateValues {
   isSidebarOpen: boolean;
 }
 
-const stateModifiers: IStateModifiers = {};
+type State = IStateValues & IStateModifiers;
 
-const UIContext = createContext<{ [key: string]: any }>({
-  uiState: "defaultState",
+const stateModifiers: IStateModifiers = {
+  openSidebar: () => {},
+  closeSidebar: () => {},
+};
+
+const initialState = { isSidebarOpen: false };
+
+const UIContext = createContext<State>({
+  ...stateModifiers,
+  ...initialState,
 });
 
 export const UIProvider: React.FC<IProps> = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
-  const uiState = {
-    sidebarOpen,
-    setSidebarOpen,
+  const openSidebar = () => console.log("Opening sidebar");
+  const closeSidebar = () => console.log("Closing sidebar");
+  const value = {
+    openSidebar,
+    closeSidebar,
+    isSidebarOpen: false,
   };
-  return <UIContext.Provider value={uiState}>{children}</UIContext.Provider>;
+  return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
 };
 
 export const useUI = () => {
