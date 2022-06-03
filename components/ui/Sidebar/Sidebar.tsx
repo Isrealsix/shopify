@@ -1,4 +1,9 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 interface Props {
   children: JSX.Element;
   isOpen: boolean;
@@ -7,6 +12,17 @@ interface Props {
 
 const Sidebar: React.FC<Props> = ({ children, isOpen, onClose }) => {
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+  useEffect(() => {
+    if (ref.current) {
+      if (isOpen) disableBodyScroll(ref.current);
+      else enableBodyScroll(ref.current);
+    }
+
+    return () => {
+      clearAllBodyScrollLocks();
+    };
+  }, [isOpen]);
 
   return (
     <>
