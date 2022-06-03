@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
 interface IProps {
   children: React.ReactNode;
 }
@@ -26,14 +26,34 @@ const UIContext = createContext<State>({
   ...initialState,
 });
 
+type Action = {
+  type: "OPEN_SIDEBAR" | "CLOSE_SIDEBAR";
+};
+
+const uiReducer = (state: IStateValues, action: Action) => {
+  switch (action.type) {
+    case "OPEN_SIDEBAR":
+      return {
+        ...state,
+        isSidebarOpen: true,
+      };
+    case "CLOSE_SIDEBAR":
+      return {
+        ...state,
+        isSidebarOpen: false,
+      };
+  }
+};
+
 export const UIProvider: React.FC<IProps> = ({ children }) => {
-  const openSidebar = () => console.log("Opening sidebar");
-  const closeSidebar = () => console.log("Closing sidebar");
+  const [state, dispatch] = useReducer(uiReducer, initialState);
+  const openSidebar = () => dispatch({ type: "OPEN_SIDEBAR" });
+  const closeSidebar = () => dispatch({ type: "CLOSE_SIDEBAR" });
 
   const value = {
+    ...state,
     openSidebar,
     closeSidebar,
-    isSidebarOpen: true,
   };
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
