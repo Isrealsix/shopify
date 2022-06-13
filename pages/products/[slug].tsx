@@ -39,8 +39,11 @@ const ProductSlug = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
-      {product.slug}
-      {product.name}
+      {product?.slug}
+      {product?.name}
+      {product?.price.value}
+      {product?.price.currencyCode}
+      {product?.path}
     </div>
   );
 };

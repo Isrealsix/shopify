@@ -1,27 +1,30 @@
 import { IApiConfig, Variables } from "@common/types/api";
-import { getProductQuery } from "@framework/utils";
+import { getProductQuery, normalizeProduct } from "@framework/utils";
 import { Product as ShopifyProduct } from "@framework/schema";
+import { IProduct } from "@common/types/products";
 
 type FetchType = {
   productByHandle: ShopifyProduct;
 };
 
+type ReturnType = {
+  product: IProduct | null;
+};
+
 const getProduct = async (options: {
   config: IApiConfig;
   variables: Variables;
-}): Promise<any> => {
+}): Promise<ReturnType> => {
   const { config, variables } = options;
   const { data } = await config.fetch<FetchType>({
     query: getProductQuery,
     url: config.apiUrl,
     variables,
   });
-  console.log(JSON.stringify(data, null, 2));
+
+  const { productByHandle } = data;
   return {
-    product: {
-      name: "our super product",
-      slug: "our-super-product",
-    },
+    product: productByHandle ? normalizeProduct(productByHandle) : null,
   };
 };
 
