@@ -1,12 +1,17 @@
-import { IApiConfig } from "@common/types/api";
+import { IApiConfig, Variables } from "@common/types/api";
 import { getProductQuery } from "@framework/utils";
+import { Product as ShopifyProduct } from "@framework/schema";
+
+type FetchType = {
+  productByHandle: ShopifyProduct;
+};
 
 const getProduct = async (options: {
   config: IApiConfig;
-  variables: any;
+  variables: Variables;
 }): Promise<any> => {
   const { config, variables } = options;
-  const { data } = await config.fetch<any>({
+  const { data } = await config.fetch<FetchType>({
     query: getProductQuery,
     url: config.apiUrl,
     variables,
