@@ -11,7 +11,7 @@ const MyApp = ({
 }: AppProps & { Component: { Layout: ReactFC } }) => {
   const Layout = Component.Layout ?? LayoutFallback;
   const ui = useUI();
-  console.log(ui);
+  // console.log(ui);
   // When we use the useUI outside a component that is not wrapped by the UIProvider, we only get the default state
   return (
     <UIProvider>

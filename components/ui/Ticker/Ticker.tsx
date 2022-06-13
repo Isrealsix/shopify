@@ -8,16 +8,25 @@ interface IProps {
 }
 
 // -10%
-// 
-const Ticker: React.FC<IProps> = ({ height = 100, offset, length, children }) => {
-  console.log(length, 'children passed in');
+//
+const Ticker: React.FC<IProps> = ({
+  height = 100,
+  offset,
+  length,
+  children,
+}) => {
+  // console.log(length, 'children passed in');
   return (
-    <div style={{
-      // height: `${height}%`,
-      overflow: 'hidden',
-      transform: `translateX(calc(0% + 4rem))`
-    }}>{children}</div>
-  )
-}
+    <div
+      style={{
+        // height: `${height}%`,
+        overflow: "hidden",
+        transform: `translateX(calc(0% + 4rem))`,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
-export default Ticker
+export default Ticker;

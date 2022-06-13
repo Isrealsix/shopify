@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useMemo } from "react";
 interface IProps {
   children: React.ReactNode;
 }
@@ -50,11 +50,13 @@ export const UIProvider: React.FC<IProps> = ({ children }) => {
   const openSidebar = () => dispatch({ type: "OPEN_SIDEBAR" });
   const closeSidebar = () => dispatch({ type: "CLOSE_SIDEBAR" });
 
-  const value = {
-    ...state,
-    openSidebar,
-    closeSidebar,
-  };
+  const value = useMemo(() => {
+    return {
+      ...state,
+      openSidebar,
+      closeSidebar,
+    };
+  }, [state]);
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
 };
