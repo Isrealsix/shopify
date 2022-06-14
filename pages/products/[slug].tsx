@@ -37,6 +37,7 @@ export const getStaticProps = async ({
 const ProductSlug = ({
   product,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log(JSON.stringify(product, null, 2));
   return <div>{JSON.stringify(product, null, 2)}</div>;
 };
 
