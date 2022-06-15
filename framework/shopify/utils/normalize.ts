@@ -3,6 +3,7 @@ import {
   CurrencyCode,
   ProductOption,
   ProductVariantConnection,
+  SelectedOption,
 } from "./../schema.d";
 import { ImageEdge, Product as ShopifyProduct } from "@framework/schema";
 import { IProduct } from "@common/types/products";
@@ -59,6 +60,14 @@ const normalizeProductVariant = ({ edges }: ProductVariantConnection) => {
       price: +priceV2.amount,
       listPrice: +compareAtPriceV2.amount,
       requiresShipping: true,
+      options: selectedOptions.map(({ name, value }: SelectedOption) => {
+        const options = normalizeProductOption({
+          id,
+          name,
+          values: [value],
+        });
+        return options;
+      }),
     };
   });
 };
