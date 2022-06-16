@@ -33,5 +33,5 @@ export interface IProduct {
   images: Array<IProductImage>;
   price: IProductPrice;
   options: IProductOption[];
-  variants: ProductVariant[];
+  variants: IProductVariant[];
 }

@@ -64,14 +64,14 @@ const ProductSlug = ({
       <div>
         {product?.variants.map((variant) => (
           <div key={variant.id}>
-            <p>Variant Name: {variant.title}</p>
-            {variant.product.options.map((variantOption) => (
+            <p>Variant Name: {variant.name}</p>
+            {variant.options.map((variantOption) => (
               <div key={variantOption.id}>
-                <p>Name {variantOption.name}</p>
-                {variantOption.values.map((value) => (
-                  <div key={value}>
-                    <p>Label: {value}</p>
-                    <p>Hex color: {value}</p>
+                <p>Name {variantOption.displayName}</p>
+                {variantOption?.values.map((value, idx) => (
+                  <div key={idx}>
+                    <p>Label: {value.label}</p>
+                    <p>Hex color: {value.hexColor}</p>
                   </div>
                 ))}
               </div>
