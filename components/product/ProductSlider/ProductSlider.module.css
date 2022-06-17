@@ -24,7 +24,7 @@
 
   @screen md {
     & {
-      @apply left-6;
+      @apply left-10;
     }
   }
 }
