@@ -11,19 +11,35 @@ const ProductSlider: React.FC<IProps> = ({ children }) => {
     initial: 0,
     loop: true,
     slideChanged(s) {
-      console.log("about to slide", s);
+      console.log("about to slide", s.options);
     },
   });
+
+  /**
+   * Function to slide
+   *
+   * @argument 'prev' || 'next'
+   */
+  const slide = (direction) => {
+    switch (direction) {
+      case "next":
+        return slider.current.next();
+      case "prev":
+        return slider.current.prev();
+      default:
+        console.error("something went wrong with slider");
+    }
+  };
 
   return (
     <div className={styles.root}>
       <div ref={sliderRef} className="keen-slider h-full transition-opacity">
         <button
-          onClick={slider.current.prev}
+          onClick={slide.bind(this, "prev")}
           className={cn(styles.leftControl, styles.control)}
         />
         <button
-          onClick={slider.current.next}
+          onClick={slide.bind(this, "next")}
           className={cn(styles.rightControl, styles.control)}
         />
         {Children.map(children, (child) => {
