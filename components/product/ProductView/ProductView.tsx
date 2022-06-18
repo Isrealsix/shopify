@@ -5,6 +5,7 @@ import { Container, Button } from "@components/ui";
 import Image from "next/image";
 import { IProduct } from "@common/types/products";
 import { ProductSlider } from "@components/product";
+import { ProductSortKeys } from "@framework/schema";
 
 interface Props {
   product: IProduct;
@@ -39,10 +40,18 @@ const ProductView: FC<Props> = ({ product }) => {
         </div>
         <div className={style.sidebar}>
           <section>
-            <div className="pb-4">
-              <h2 className="uppercase font-medium">Color</h2>
-              <div className="flex flex-row py-4">Variant Options Here!</div>
-            </div>
+            {product.options.map((option) => (
+              <div key={option.id} className="pb-4">
+                <h2 className="uppercase font-medium">{option.displayName}</h2>
+                <div className="flex flex-row py-4">
+                  {option.values.map((optValue) => (
+                    <div key={`${option.id}-${optValue.label}`}>
+                      {optValue.label}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
             <div className="pb-14 break-words w-full max-w-xl text-lg">
               {product.description}
             </div>
