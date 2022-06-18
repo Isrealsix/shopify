@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, isValidElement } from "react";
+import React, { Children, cloneElement, isValidElement, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import cn from "classnames";
 import styles from "./ProductSlider.module.css";
@@ -7,14 +7,16 @@ interface IProps {
   children: React.ReactNode;
 }
 const ProductSlider: React.FC<IProps> = ({ children }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, slider] = useKeenSlider({
     initial: 0,
     loop: true,
     slideChanged(s) {
-      console.log("about to slide", s.options);
+      setCurrentSlide(s.track.details.rel);
     },
   });
 
+  // console.log(currentSlide);
   /**
    * Function to slide
    *
